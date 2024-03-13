@@ -88,7 +88,19 @@ def main():
     proxmox_node = config["default"]["proxmox_node"]
     proxmox_user = config["default"]["user"]
     proxmox_password = config["default"]["password"]
-    verify_ssl = config["default"]["verify_ssl"]
+    verify_ssl = config["default"].get("verify_ssl", True)
+    scrape_interval = config["default"].get("scrape_interval", 60)
+
+    if not isinstance(proxmox_node, str):
+        sys.exit("proxmox_node must be a string")
+    if not isinstance(proxmox_user, str):
+        sys.exit("proxmox_user must be a string")
+    if not isinstance(proxmox_password, str):
+        sys.exit("proxmox_password must be a string")
+    if not isinstance(verify_ssl, bool):
+        sys.exit("verify_ssl must be a boolean")
+    if not isinstance(scrape_interval, int):
+        sys.exit("scrape_interval must be an integer")
 
     if not isinstance(verify_ssl, bool):
         sys.exit("verify_ssl must be a boolean")
@@ -113,7 +125,7 @@ def main():
             sys.exit(errno.EACCES)
 
         process_vm_state(ha_response["data"])
-        time.sleep(60)
+        time.sleep(scrape_interval)
 
 
 if __name__ == '__main__':

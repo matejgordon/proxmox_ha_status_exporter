@@ -35,14 +35,24 @@ You can run this exporter as a standalone Python script or as a Docker container
 
 ## Default values
 
-### Config
-By default, the configuration file for the Proxmox HA Status Exporter is located at `./config/proxmox_ha_status_exporter.yml`. You can change the location with flag `--config-file`
+### Command line configs
 
+| directive         | required | default value |
+|---------------|--------|--------|
+| `--config-file`       | `no`      | `./config/proxmox_ha_status_exporter.yml`       |
+| `--port`  | `no`      | `9562`      |
+
+### Configuration file configs
 The sample config file can be found [here](/config/proxmox_ha_status_exporter.yml)
 
-### Port
-
-The default port for the webserver is `9562`, but you can change it using the `--port` flag. If you are using Docker, you can map it to a different port.
+| config         | required | default value |
+|---------------|--------|--------|
+| `proxmox_node`       | **`yes`**      | `none`      |
+| `user`  | **`yes`**      | `none`      |
+| `password`  | **`yes`**      | `none`      |
+| `log_level`       | `no`      | `info`      |
+| `verify_ssl`      | `no`      | `true`      |
+| `scrape_interval`       | `no`      | `60`      |
 
 
 # Mapping of VM States
