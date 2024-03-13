@@ -1,6 +1,5 @@
 This table represents the mapping of VM states to corresponding numbers used in the get_state_number function in the ha_resource_status_exporter.py script. Each state of a VM is associated with a specific number as follows:
 
-
 | State         | Number |
 |---------------|--------|
 | stopped       | 0      |

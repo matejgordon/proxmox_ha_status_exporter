@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  ha_resouce_status_exporter:
+    build: .
+    ports:
+      - "9562:9562"
+    volumes:
+      - ./config/private-config.yml:/etc/proxmox_ha_status_exporter.yml
