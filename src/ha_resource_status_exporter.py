@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
 # Parse arguments from the command line
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Enable HA state for a VM in Proxmox')
-    parser.add_argument('--config-file', type=str, default='/etc/proxmox_ha_status_exporter.yml', help='Config file location')
+    parser.add_argument('--config-file', type=str, default='./config/proxmox_ha_status_exporter.yml', help='Config file location')
     parser.add_argument('--port', type=int, default=9562, help='Port number for the server')
     return parser.parse_args()
 
