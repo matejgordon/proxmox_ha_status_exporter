@@ -5,4 +5,4 @@ services:
     ports:
       - "9562:9562"
     volumes:
-      - ./config/private-config.yml:/app/config/proxmox_ha_status_exporter.yml
+      - ./config/proxmox_ha_status_exporter.yml:/app/config/proxmox_ha_status_exporter.yml

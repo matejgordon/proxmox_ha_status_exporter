@@ -4,9 +4,10 @@
 
 This project is a Prometheus Proxmox HA Status Exporter that provides a mapping of VM every state to corresponding number.
 
-You can run this exporter as a standalone Python script or as a Docker container.
 
 # Deploy
+
+You can run this exporter as a standalone Python script or as a Docker container.
 
 ## Standalone
 ### Installation
@@ -16,15 +17,20 @@ You can run this exporter as a standalone Python script or as a Docker container
 
 ### Usage
 
-1. Run the `ha_resource_status_exporter.py` script.
-2. Access the exported data through the API endpoint.
+1. Edit the config at `./config/proxmox_ha_status_exporter.yml`
+2. Run the `ha_resource_status_exporter.py` script.
+3. Access the exported data through the API endpoint.
+4. Profit 💸
 
 ## Docker
 ### Usage
 
 1. Build the Docker image: `docker build -t proxmox_ha_status_exporter .`
-2. Run the Docker container: `docker run -d -p 9562:9562 proxmox_ha_status_exporter`
-3. Access the exported data through the API endpoint.
+2. Edit the config at `./config/proxmox_ha_status_exporter.yml`
+3. Run the Docker container: `docker run -d -p 9562:9562 proxmox_ha_status_exporter` or use the sample [docker-compose](/config/proxmox_ha_status_exporter.yml)
+4. Access the exported data through the API endpoint.
+5. Profit 💸
+
 
 ## Default values
 
