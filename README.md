@@ -25,11 +25,12 @@ You can run this exporter as a standalone Python script or as a Docker container
 ## Docker
 ### Usage
 
-1. Build the Docker image: `docker build -t proxmox_ha_status_exporter .`
-2. Edit the config at `./config/proxmox_ha_status_exporter.yml`
-3. Run the Docker container: `docker run -d -p 9562:9562 proxmox_ha_status_exporter` or use the sample [docker-compose](docker-compose.yml)
-4. Access the exported data through the API endpoint.
-5. Profit 💸
+1. Clone the repository: `git clone https://github.com/matejgordon/proxmox_ha_status_exporter.git`
+2. Build the Docker image: `docker build . -t proxmox_ha_status_exporter`
+3. Edit the config at `./config/proxmox_ha_status_exporter.yml`
+4. Run the Docker container: `docker run -d -p 9562:9562 proxmox_ha_status_exporter` or run the sample [docker-compose](docker-compose.yml) with `docker compose up -d`
+5. Access the exported data through the API endpoint.
+6. Profit 💸
 
 
 ## Default values

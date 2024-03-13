@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   ha_resouce_status_exporter:
+    restart: always
     build: .
     ports:
       - "9562:9562"
