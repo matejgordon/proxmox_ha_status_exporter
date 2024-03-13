@@ -74,3 +74,7 @@ This table represents the mapping of VM states to corresponding numbers used in 
 | error         | 10     |
 | queued        | 11     |
 | disabled      | 12     |
+
+
+# TODO
+TODO is in issue [#1](https://github.com/matejgordon/proxmox_ha_status_exporter/issues/1)
