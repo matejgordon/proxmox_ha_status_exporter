@@ -1,6 +1,7 @@
 default:
-    log_level: info
     proxmox_node: 1.2.3.4
-    user: youruser@pve
+    user: user@pve
     password: supersecretpassword
-    verify_ssl: false
+    log_level: info # Optional - Default is info
+    verify_ssl: true # Optional - Default is true
+    scrape_interval: 60 # Optional - Default is 60
