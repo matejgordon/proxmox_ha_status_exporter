@@ -2,6 +2,7 @@ default:
     proxmox_node: 1.2.3.4
     user: user@pve
     password: supersecretpassword
+    proxmox_node_port: 8006 # Optional - Default is 8006
     log_level: info # Optional - Default is info
     verify_ssl: true # Optional - Default is true
     scrape_interval: 60 # Optional - Default is 60
