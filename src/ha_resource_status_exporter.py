@@ -56,17 +56,21 @@ def authenticate(proxmox_node, proxmox_user, proxmox_password, verify_ssl, proxm
         headers = {
             'CSRFPreventionToken': csrf_token
         }
+        logging.info(f"Authenticated to Proxmox node {proxmox_node} on port {proxmox_node_port}")
         return cookies, headers
     else:
         logging.error(f"Proxmox node {proxmox_node} is not available on port {proxmox_node_port}. Please check the IP and port.")
         sys.exit(errno.EACCES)
 
-VM_STATE = Gauge('vm_state', 'State of the VM', ['id', 'node', 'group', 'status', 'state'])
+VM_STATE = Gauge('vm_state', 'State of the VM', ['id', 'node', 'group'])
 def process_vm_state(vm_state):
     """Parse VM state and update Prometheus metrics."""
+    # Remove previous state from reporting
+    VM_STATE.clear()
+    
     for vm in vm_state:
         if 'service' in vm['id']:
-            VM_STATE.labels(id=vm['id'], node=vm['node'], group=vm.get('group', 'N/A'), status=vm['status'], state=vm['state']).set(get_state_number(vm['state']))
+            VM_STATE.labels(id=vm['id'], node=vm['node'], group=vm.get('group', 'N/A')).set(get_state_number(vm['state']))
 def get_state_number(state):
     """Map VM state to corresponding number."""
     state_mapping = {
