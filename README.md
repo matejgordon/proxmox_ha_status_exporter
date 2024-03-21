@@ -50,6 +50,7 @@ The sample config file can be found [here](/config/proxmox_ha_status_exporter.ym
 | `proxmox_node`       | **`yes`**      | `none`      |
 | `user`  | **`yes`**      | `none`      |
 | `password`  | **`yes`**      | `none`      |
+| `proxmox_node_port`  | `no`      | `8006`      |
 | `log_level`       | `no`      | `info`      |
 | `verify_ssl`      | `no`      | `true`      |
 | `scrape_interval`       | `no`      | `60`      |
